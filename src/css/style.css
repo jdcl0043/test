@@ -1,0 +1,251 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: 'montserrat';
+}
+
+/* Contenedor principal */
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Título general */
+.titulo {
+    color: #af0000;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 600px;
+    background: #ff0000; /* Color de fondo */
+    background: -webkit-linear-gradient(to right, hsla(0, 100%, 50%, 0.459), hsla(0, 100%, 63%, 0.664)), url(../img/portada1.jpeg); /* Degradado de fondo para navegadores WebKit */
+    background: linear-gradient(to right, hsla(0, 100%, 50%, 0.459), hsla(0, 100%, 63%, 0.664)), url(../img/portada1.jpeg); /* Degradado de fondo */
+    background-size: cover; /* Tamaño de fondo */
+    background-attachment: fixed; /* Fondo fijo */
+    position: relative;
+}
+
+/* Navegación */
+nav {
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav > a {
+    color: #a09d9d;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+}
+
+/* Contenido del encabezado */
+header .textos-header {
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.textos-header h1 {
+    font-size: 50px;
+    color: #a09d9d;
+}
+
+.textos-header h2 {
+    font-size: 30px;
+    font-weight: 300;
+    color: #a09d9d;
+}
+
+
+/* Sección ¿Quien soy? */
+main .quien-soy {
+    padding: 30px 0 60px 0;
+}
+
+.contenedor-quien-soy {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.imagen-about-us {
+    width: 48%;
+}
+
+.quien-soy .contenido-textos {
+    width: 48%;
+}
+
+.contenido-textos h3 {
+    margin-bottom: 15px;
+}
+
+.contenido-textos h3 span {
+    background: #860606;
+    color: #a09d9d;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    margin-right: 5px;
+}
+
+.contenido-textos p {
+    padding: 0px 0px 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* Galería */
+.portafolio {
+    background: #a09d9d;
+}
+
+.galeria-port {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port {
+    width: 24%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hover-galeria {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: #d32020;
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img {
+    width: 50px;
+}
+
+.hover-galeria p {
+    color: #a09d9d;
+}
+
+.imagen-port:hover .hover-galeria {
+    transform: scale(1);
+}
+
+/* Testimonios de ¿Que me gusta? */
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cards .card {
+    background: #d32020;
+    display: flex;
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+}
+
+.cards .card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid #a09d9d;
+    border-radius: 50%;
+    display: block;
+}
+
+.cards .card > .contenido-texto-card {
+    width: 60%;
+    color: #a09d9d;
+}
+
+.cards .card > .contenido-texto-card p {
+    font-weight: 300;
+    padding-top: 5px;
+}
+
+
+/* Pie de página */
+footer {
+    background: #414141;
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+}
+
+.contenedor-footer {
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #636363;
+}
+
+.content-foo {
+    text-align: center;
+}
+
+.content-foo h4 {
+    color: #a09d9d;
+    border-bottom: 3px solid #d32020;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.content-foo p {
+    color: #a09d9d;
+}
+
+.titulo-final {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+}
+
