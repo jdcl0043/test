@@ -1,0 +1,128 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "S3ArchiveAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:GetBucketLocation",
+        "s3:GetBucketVersioning",
+        "s3:ListBucketVersions",
+        "s3:GetObjectVersion",
+        "s3:PutLifecycleConfiguration",
+        "s3:GetLifecycleConfiguration"
+      ],
+      "Resource": [
+        "arn:aws:s3:::*-archive-*",
+        "arn:aws:s3:::*-archive-*/*",
+        "arn:aws:s3:::*-backup-*",
+        "arn:aws:s3:::*-backup-*/*"
+      ]
+    },
+    {
+      "Sid": "S3GlacierAccess",
+      "Effect": "Allow",
+      "Action": [
+        "glacier:CreateVault",
+        "glacier:DeleteVault",
+        "glacier:DescribeVault",
+        "glacier:ListVaults",
+        "glacier:UploadArchive",
+        "glacier:InitiateJob",
+        "glacier:ListJobs",
+        "glacier:GetJobOutput",
+        "glacier:DescribeJob",
+        "glacier:ListParts",
+        "glacier:ListMultipartUploads",
+        "glacier:SetVaultAccessPolicy",
+        "glacier:GetVaultAccessPolicy"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "BackupAccess",
+      "Effect": "Allow",
+      "Action": [
+        "backup:ListBackupPlans",
+        "backup:ListBackupVaults",
+        "backup:ListRecoveryPointsByBackupVault",
+        "backup:DescribeBackupVault",
+        "backup:GetBackupPlan",
+        "backup:StartBackupJob",
+        "backup:DescribeBackupJob",
+        "backup:StartRestoreJob",
+        "backup:DescribeRestoreJob",
+        "backup:ListBackupJobs",
+        "backup:ListRestoreJobs"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "EC2ReadOnlyForBackup",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeInstances",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeSnapshots",
+        "ec2:CreateSnapshot",
+        "ec2:CreateSnapshots",
+        "ec2:DescribeImages"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "RDSBackupAccess",
+      "Effect": "Allow",
+      "Action": [
+        "rds:DescribeDBInstances",
+        "rds:DescribeDBSnapshots",
+        "rds:CreateDBSnapshot",
+        "rds:CopyDBSnapshot",
+        "rds:ListTagsForResource"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CloudWatchLogsForMonitoring",
+      "Effect": "Allow",
+      "Action": [
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams",
+        "logs:GetLogEvents",
+        "logs:FilterLogEvents"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "KMSForEncryption",
+      "Effect": "Allow",
+      "Action": [
+        "kms:Decrypt",
+        "kms:DescribeKey",
+        "kms:GenerateDataKey"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "kms:ViaService": [
+            "s3.amazonaws.com",
+            "glacier.amazonaws.com"
+          ]
+        }
+      }
+    },
+    {
+      "Sid": "TaggingForOrganization",
+      "Effect": "Allow",
+      "Action": [
+        "tag:GetResources",
+        "tag:GetTagKeys",
+        "tag:GetTagValues"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
